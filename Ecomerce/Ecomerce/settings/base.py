@@ -81,6 +81,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# this variable is for set the default model for the users
+AUTH_USER_MODEL = 'Users.User'
+
+
 
 
 LANGUAGE_CODE = 'en-us'
