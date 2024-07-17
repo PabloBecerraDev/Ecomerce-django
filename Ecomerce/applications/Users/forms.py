@@ -1,4 +1,5 @@
 from typing import Any
+from .functions import *
 from django import forms
 from .models import *
 from django.contrib import messages
@@ -22,6 +23,13 @@ class ClienteForm(forms.ModelForm):
             'correo'
         ]
 
+
+    def clean_passwordConfirmation(self):
+        if self.cleaned_data['password'] != self.cleaned_data['passwordConfirmation']:
+            self.add_error('password', 'Las contraseñas no son las mismas.')
+        elif (len(self.cleaned_data['password']) < 5):
+            self.add_error('password', 'Las contraseñas deben de tener de 5 dijitos en adelante ')
+
     def __init__(self, *args, **kwargs) -> User:
         super().__init__(*args, **kwargs)
         self.fields['direccion'].required = True
@@ -29,23 +37,14 @@ class ClienteForm(forms.ModelForm):
 
 
     def save(self, commit = True):
-
         # make a instance of user 
         user = super().save(commit=False)
-
-        password1 = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('passwordConfirmation')
-
-        if (password1 == None or password2 == None):
-            messages.warning(self.request, 'Ingresa las dos contaseñas')
-        else:
-            if (password1 == password2):
-                user.set_password(self.cleaned_data['password'])
-                if commit:
-                    user.save()
-
-
-
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+            user.numVerification = codeGenerator() 
         return user
 
         
+class ConfirmarEmailForm(forms.Form):
+    pass

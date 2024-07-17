@@ -6,5 +6,6 @@ app_name = "Users_app"
 
 
 urlpatterns = [
-   path('CreateUser', CreateUserView.as_view(), name = 'create_user_view')
+   path('CreateUser', CreateUserView.as_view(), name = 'create_user_view'),
+   path('login', loginView, name='login'),
 ]

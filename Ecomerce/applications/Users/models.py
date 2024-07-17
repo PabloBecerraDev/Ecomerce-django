@@ -18,6 +18,9 @@ class User(AbstractUser, PermissionsMixin):
     correo = models.CharField(default = "null@null.com")
     numVerification = models.CharField(max_length = 6, blank = True, null = True)
 
+
+
+    is_active = models.BooleanField(default = False)
     
 
 
