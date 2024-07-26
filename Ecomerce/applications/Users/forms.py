@@ -2,6 +2,7 @@ from typing import Any
 from .functions import *
 from django import forms
 from .models import *
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import login
@@ -40,7 +41,7 @@ class ClienteForm(forms.ModelForm):
 
     def save(self, commit = True):
         # make a instance of user 
-        user = super().save(commit=True)
+        user = super().save(commit = True)
         user.set_password(self.cleaned_data['password'])
     
         if commit:
@@ -49,9 +50,20 @@ class ClienteForm(forms.ModelForm):
             
         return user
 
-        
+
+
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(required = True)
+    password = forms.CharField(widget = forms.PasswordInput, required = True)   
+
+
+
+
 class ConfirmarEmailForm(forms.Form):
     code = forms.CharField(required = True)
+    username = forms.CharField(required = True)
     usuario = None
     
     def __init__(self, usuario=None, *args, **kwargs):
@@ -68,3 +80,4 @@ class ConfirmarEmailForm(forms.Form):
         else: 
             self.add_error('code', 'El numero de verificacion es incorrecto.')
     
+

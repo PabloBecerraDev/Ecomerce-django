@@ -32,4 +32,8 @@ class UserManager(BaseUserManager, models.Manager):
                     telefono, correo, is_staff, is_superuser, **extra_fields)
 
 
-        
+def getCodeByUsername(self, username):
+    try:
+        return self.get(username=username)
+    except self.model.DoesNotExist:
+        return None
