@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Activar cuenta</title>
 </head>
 <body>
+    <h1>Activar cuenta</h1>
     <form method="post">
         {% csrf_token %}
-        {{form.username}}
-        <button type="submit" >ingresae username</button>
-        {{form.code}}
-        <button type="submit" >Verificar correo</button>
-    
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <button type="submit" name="btnUsername">Enviar correo</button>
+
+        {{ form.code.label_tag }}
+        {{ form.code }}
+        <button type="submit" name="btnVerificar">Activar cuenta</button>
     </form>
 
-    <h3>¿No te llego el codigo?</h3>
-    <button>enviar codigo</button>
+    <h3>¿No te llegó el código?</h3>
+    <button>Enviar código nuevamente</button>
 </body>
 </html>

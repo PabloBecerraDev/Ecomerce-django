@@ -64,20 +64,12 @@ class CustomAuthenticationForm(AuthenticationForm):
 class ConfirmarEmailForm(forms.Form):
     code = forms.CharField(required = True)
     username = forms.CharField(required = True)
-    usuario = None
     
     def __init__(self, usuario=None, *args, **kwargs):
-        self.usuario = usuario
-        if self.usuario:
-            self.usuario = usuario
-            print(self.usuario.numVerification)
-
         super().__init__(*args, **kwargs)
+        self.fields['code'].required = False
+        self.fields['username'].required = False
 
-    def clean_code(self):
-        if self.cleaned_data['code'] == self.usuario.numVerification:
-            self.usuario.is_active = True
-        else: 
-            self.add_error('code', 'El numero de verificacion es incorrecto.')
+    
     
 

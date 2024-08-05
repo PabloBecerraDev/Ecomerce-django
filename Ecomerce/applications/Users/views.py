@@ -87,15 +87,37 @@ class VerifiqueUser(NotAuthenticatedMixin, FormView):
     success_url = '/'
 
 
-def mi_vista(request):
+def activateAccountView(request):
+    form = ConfirmarEmailForm(request.POST)
+
+
     if request.method == 'POST':
         if 'btnUsername' in request.POST:
-            # Acción cuando se presiona el botón "Ingresar username"
-            # Por ejemplo, recuperar el usuario por su nombre de usuario
             username = request.POST.get('username')
-            # Realiza la lógica necesaria con el nombre de usuario
+            
+            try:
+                user = User.objects.get(username = username)
+                userCode = user.numVerification
+                request.session['userCode'] = userCode
+                request.session['userId'] = user.id
+
+            except User.DoesNotExist:
+                pass
+            
+            
+            
         elif 'btnVerificar' in request.POST:
-            # Acción cuando se presiona el botón "Verificar correo"
-            # Por ejemplo, verificar el código de correo
-            code = request.POST.get('code')
-            # Realiza la lógica necesaria con el código
+            userCode = request.session['userCode'] 
+        
+            if userCode == request.POST.get('code'):
+                try:
+
+                    user = User.objects.get(id = request.session['userId'])
+                    user.is_active = True
+                    user.save()
+
+                except:
+                    pass
+
+
+    return render(request, 'Users/emailVerification.html', {'form': form})
