@@ -3,6 +3,8 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
+from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import redirect
 from .functions import *
@@ -88,24 +90,52 @@ class VerifiqueUser(NotAuthenticatedMixin, FormView):
 
 
 def activateAccountView(request):
+
+    # if the user is logged he isnt use this view
+    if request.user:
+        return redirect('Home_app:index_view')
+
     form = ConfirmarEmailForm(request.POST)
-
-
     if request.method == 'POST':
         if 'btnUsername' in request.POST:
             username = request.POST.get('username')
             
             try:
-                user = User.objects.get(username = username)
-                userCode = user.numVerification
-                request.session['userCode'] = userCode
-                request.session['userId'] = user.id
+                user = User.objects.get(username = username) 
+
+                if user:
+                    messages.success(request, ' El codigo ha sido enviado a el correo asociado  en la cuenta con el username ingresado. ')
+
+                # if the user exist and is not active 
+                if user and user.is_active == False:
+                    #chage the user code for the new code 
+                    user.numVerification = codeGenerator()
+                    
+                    # save the actual user code in the session
+                    userCode = user.numVerification
+                    request.session['userCode'] = userCode
+
+                    # save the user id in the session 
+                    request.session['userId'] = user.id
+
+                    # saving the user with the new code 
+                    user.save()
+
+                    # then we send the code by email
+                    asunto = 'Confirmacion de email'
+                    mensaje = 'Codigo de verificacion enviado desde una app cacorra en Django: ' + userCode
+                    email_remitente = obtener_contenido_variable("email")
+                    print(email_remitente)
+                    print(user.correo)
+                    send_mail(asunto, mensaje, email_remitente, [user.correo,])
+                else:
+                    # if the user is active 
+                    return redirect('Users_app:login')
+
 
             except User.DoesNotExist:
-                pass
-            
-            
-            
+                messages.error(request, 'No existe el usuario: ' + username)
+
         elif 'btnVerificar' in request.POST:
             userCode = request.session['userCode'] 
         
@@ -115,9 +145,7 @@ def activateAccountView(request):
                     user = User.objects.get(id = request.session['userId'])
                     user.is_active = True
                     user.save()
-
+                    return redirect('Home_app:index_view')
                 except:
                     pass
-
-
     return render(request, 'Users/emailVerification.html', {'form': form})

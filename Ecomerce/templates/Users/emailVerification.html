@@ -6,6 +6,15 @@
     <title>Activar cuenta</title>
 </head>
 <body>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <h1>Activar cuenta</h1>
     <form method="post">
         {% csrf_token %}
@@ -16,9 +25,10 @@
         {{ form.code.label_tag }}
         {{ form.code }}
         <button type="submit" name="btnVerificar">Activar cuenta</button>
+
+        <h3>¿No te llegó el código?</h3>
+        <button type="submit" name="btnReenviar">Enviar código nuevamente</button>
     </form>
 
-    <h3>¿No te llegó el código?</h3>
-    <button>Enviar código nuevamente</button>
 </body>
 </html>
