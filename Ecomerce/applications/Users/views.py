@@ -89,11 +89,18 @@ class VerifiqueUser(NotAuthenticatedMixin, FormView):
     success_url = '/'
 
 
-def activateAccountView(request):
+# decorator to activateAccountView 
+def anonymous_required(view_function):
+    def _wrapped_view_function(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('Home_app:index_view')
+        return view_function(request, *args, **kwargs)
+    return _wrapped_view_function
 
-    # if the user is logged he isnt use this view
-    if request.user:
-        return redirect('Home_app:index_view')
+
+
+@anonymous_required
+def activateAccountView(request):
 
     form = ConfirmarEmailForm(request.POST)
     if request.method == 'POST':
@@ -125,8 +132,6 @@ def activateAccountView(request):
                     asunto = 'Confirmacion de email'
                     mensaje = 'Codigo de verificacion enviado desde una app cacorra en Django: ' + userCode
                     email_remitente = obtener_contenido_variable("email")
-                    print(email_remitente)
-                    print(user.correo)
                     send_mail(asunto, mensaje, email_remitente, [user.correo,])
                 else:
                     # if the user is active 
