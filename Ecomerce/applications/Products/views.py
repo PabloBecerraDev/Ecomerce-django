@@ -21,6 +21,6 @@ class CreateProductView(FormView):
     template_name = "Products/createProduct.html"
 
     def form_valid(self, form):
-        
-
+        form.save()
+        print("producto agregado correctamnete")
         return super().form_valid(form)

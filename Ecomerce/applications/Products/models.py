@@ -6,6 +6,10 @@ class Categoria(models.Model):
 
     nombre = models.CharField(max_length = 200)
 
+    
+    def __str__(self) -> str:
+        return str(self.id) + ' ' + self.nombre
+
 
 
 class Product(models.Model):
