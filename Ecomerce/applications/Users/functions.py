@@ -16,6 +16,3 @@ def obtener_contenido_variable(nombre_variable):
     
 
 
-print(obtener_contenido_variable("email"))
-print(obtener_contenido_variable("password"))
-

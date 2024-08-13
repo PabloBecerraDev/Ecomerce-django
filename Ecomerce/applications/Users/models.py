@@ -3,6 +3,23 @@ from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .managers import *
 
 
+#city choises 
+
+CIUDAD_CHOISES = (
+    ('CALI', 'Santiago de Cali'),
+    ('BOG', 'Bogotá'),
+    ('MED', 'Medellín'),
+    ('CTG', 'Cartagena'),
+    ('BQ', 'Barranquilla'),
+    ('BUC', 'Bucaramanga'),
+    ('MAN', 'Manizales'),
+    ('PER', 'Pereira'),
+    ('IBA', 'Ibagué'),
+    ('VIL', 'Villavicencio'),
+    ('SMR', 'Santa Marta'),
+)
+
+
 
 
 class User(AbstractUser, PermissionsMixin):
@@ -31,3 +48,13 @@ class User(AbstractUser, PermissionsMixin):
 
     # this is the manager for the users 
     objects = UserManager()
+
+
+
+
+class Direccion(models.Model):
+
+    direccion = models.CharField(max_length = 100)
+    barrio = models.CharField(max_length = 100)
+    ciudad = models.CharField(max_length = 4, choices = CIUDAD_CHOISES)
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'direcciones')
