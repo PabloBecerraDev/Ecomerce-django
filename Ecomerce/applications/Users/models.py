@@ -25,6 +25,7 @@ CIUDAD_CHOISES = (
 class User(AbstractUser, PermissionsMixin):
 
     # this field "username" will be mandatory
+    is_client = models.BooleanField(default = True, null = True, blank = True)
     username = models.CharField(unique = True, blank = False, null = False, max_length = 30 ) 
     nombres = models.CharField(max_length = 60, blank = True, null = True)
     apellidos = models.CharField(max_length = 60)

@@ -85,6 +85,8 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBacke
 
 
 
+
+
 # this variable is for set the default model for the users
 AUTH_USER_MODEL = 'Users.User'
 

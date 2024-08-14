@@ -1,0 +1,114 @@
+/* Aplica una fuente monoespaciada a todo el cuerpo del documento */
+body {
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    background-color: #1e1e1e;  /* Fondo oscuro para un efecto de terminal */
+    color: #00ff00;             /* Texto verde como en muchas terminales antiguas */
+}
+
+/* Opcional: Ajuste de la altura de línea y tamaño de fuente para mayor realismo */
+body, p, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Estilos para elementos de código */
+code, pre {
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    background-color: #2d2d2d;
+    color: #00ff00;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Opcional: Estilos para hipervínculos */
+a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+
+
+
+/* Estilo general para el navbar */
+.navbar {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+/* Estilo para el buscador */
+.search-container {
+    display: flex;
+    align-items: center;
+    left: 4px;
+}
+
+#search-input {
+    background-color: #2d2d2d;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    font-family: inherit;
+    width: 150px;
+}
+
+.search-button {
+    background-color: #2d2d2d;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #00ff00;
+    color: #2d2d2d;
+}
+
+/* Estilo para los enlaces del navbar */
+.nav-links {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Estilo para la imagen de perfil */
+.profile .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #00ff00;
+}

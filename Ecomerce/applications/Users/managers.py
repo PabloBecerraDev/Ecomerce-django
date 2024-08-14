@@ -4,10 +4,11 @@ from django.db import models
 
 
 class UserManager(BaseUserManager, models.Manager):
-    def create_user(self, username, nombres, apellidos, edad, direccion, 
+    def create_user(self, is_client, username, nombres, apellidos, edad, direccion, 
                     telefono, correo, is_staff = False, is_superuser = False, is_active = False, password = None, **extra_fields):
         
         user = self.model(
+            is_client = is_client,
             username = username,
             nombres = nombres, 
             apellidos = apellidos,
@@ -27,10 +28,10 @@ class UserManager(BaseUserManager, models.Manager):
         return user
     
 
-    def create_superuser(self, username, nombres = " ", apellidos = " ", edad = 0, direccion = " ", 
+    def create_superuser(self, username, is_client = False, nombres = " ", apellidos = " ", edad = 0, direccion = " ", 
                     telefono = 0, correo = " ", is_staff = True, is_superuser = True, is_active = True,
                     **extra_fields):
-        return self.create_user(username, nombres, apellidos, edad, direccion, 
+        return self.create_user(is_client, username, nombres, apellidos, edad, direccion, 
                     telefono, correo, is_staff, is_superuser, is_active, **extra_fields)
 
 

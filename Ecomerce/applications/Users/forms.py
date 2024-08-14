@@ -43,6 +43,7 @@ class ClienteForm(forms.ModelForm):
         # make a instance of user 
         user = super().save(commit = True)
         user.set_password(self.cleaned_data['password'])
+        user.is_client = True
     
         if commit:
             user.numVerification = codeGenerator()

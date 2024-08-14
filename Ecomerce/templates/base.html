@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Proyecto Terminal{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/baseStyles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <!-- Marca o logotipo -->
+            <a class="navbar-brand" href="">Mi Terminal</a>
+
+            <!-- Buscador -->
+            <div class="search-container">
+                <input type="text" placeholder="Buscar..." id="search-input">
+                <button type="submit" class="search-button">🔍</button>
+            </div>
+        </div>
+
+        <!-- Apartados -->
+        <div class="nav-links">
+            <a href="">Apartado 1</a>
+            <a href="">Apartado 2</a>
+            <a href="">Apartado 3</a>
+        </div>
+
+        <!-- Imagen de perfil -->
+         
+        {% if user.is_authenticated %}
+            <div class="profile">
+                <img src="" alt="Perfil" class="profile-pic">
+            </div>
+        {% else %} 
+            <div class="profile">
+                <a class="nav-links">Login</a>
+            </div>
+        {% endif %}
+    </nav>
+
+    {% block content %}
+    <!-- Aquí va el contenido específico de cada página -->
+    {% endblock %}
+</body>
+</html>
