@@ -11,7 +11,7 @@
     <nav class="navbar">
         <div class="navbar-left">
             <!-- Marca o logotipo -->
-            <a class="navbar-brand" href="">Mi Terminal</a>
+            <a class="navbar-brand" href="">GamerX</a>
 
             <!-- Buscador -->
             <div class="search-container">
@@ -35,7 +35,8 @@
             </div>
         {% else %} 
             <div class="profile">
-                <a class="nav-links">Login</a>
+                <a class="nav-links" href="{% url 'Users_app:login' %}">Login</a>
+                <a class="nav-links" href="{% url 'Users_app:create_user_view' %}">Register</a>
             </div>
         {% endif %}
     </nav>

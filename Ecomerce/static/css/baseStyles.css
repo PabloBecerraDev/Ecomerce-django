@@ -1,7 +1,8 @@
 /* Aplica una fuente monoespaciada a todo el cuerpo del documento */
 body {
+    background-color: #434141; /* Color de fondo de la página */
+    color: #00ff00;     
     font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
-    background-color: #1e1e1e;  /* Fondo oscuro para un efecto de terminal */
     color: #00ff00;             /* Texto verde como en muchas terminales antiguas */
 }
 
@@ -14,7 +15,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 /* Estilos para elementos de código */
 code, pre {
     font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
-    background-color: #2d2d2d;
+    background-color: #1e1e1e;
     color: #00ff00;
     padding: 10px;
     border-radius: 5px;
@@ -35,8 +36,12 @@ a:hover {
 
 /* Estilo general para el navbar */
 .navbar {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; 
     color: #00ff00;
+    width: 97%;               
+    position: fixed;
+    top: 0;                    /* Asegura que esté en la parte superior */
+    left: 0;    
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -64,7 +69,7 @@ a:hover {
 }
 
 #search-input {
-    background-color: #2d2d2d;
+    background-color: #1e1e1e;
     border: 1px solid #00ff00;
     color: #00ff00;
     padding: 5px;
@@ -74,7 +79,7 @@ a:hover {
 }
 
 .search-button {
-    background-color: #2d2d2d;
+    background-color: #1e1e1e;
     border: 1px solid #00ff00;
     color: #00ff00;
     padding: 5px 10px;
@@ -84,7 +89,7 @@ a:hover {
 
 .search-button:hover {
     background-color: #00ff00;
-    color: #2d2d2d;
+    color: #1e1e1e;
 }
 
 /* Estilo para los enlaces del navbar */

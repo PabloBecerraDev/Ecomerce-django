@@ -1,0 +1,84 @@
+body {
+    background-color: #434141; /* Color de fondo de la página */
+    color: #00ff00;     
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    color: #00ff00;             /* Texto verde como en muchas terminales antiguas */
+}
+
+form {
+    background-color: #2d2d2d;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+}
+
+.container-form {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.col {
+    flex: 0 0 48%; /* Cada columna ocupa el 48% del ancho de la fila */
+}
+
+.input-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+label {
+    color: #00ff00;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #00ff00;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+.error-message {
+    color: #ff4c4c;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00ff00;
+    background-color: #00ff00;
+    color: #2d2d2d;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #2d2d2d;
+    color: #00ff00;
+    border-color: #00ff00;
+}

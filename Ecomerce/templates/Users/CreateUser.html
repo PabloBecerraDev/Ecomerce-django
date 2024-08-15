@@ -1,6 +1,91 @@
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" >Aceptar</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente - Mi Proyecto Terminal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/createUserStyles.css' %}">
+</head>
+<body>
+   
 
-</form>
+    <div class="container-form">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Registro de Cliente</h2>
+            
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_username">Nombre de Usuario</label>
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_nombres">Nombres</label>
+                        {{ form.nombres }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_apellidos">Apellidos</label>
+                        {{ form.apellidos }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_edad">Edad</label>
+                        {{ form.edad }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_direccion">Dirección</label>
+                        {{ form.direccion }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_telefono">Teléfono</label>
+                        {{ form.telefono }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_correo">Correo</label>
+                        {{ form.correo }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_password">Contraseña</label>
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_passwordConfirmation">Confirmar Contraseña</label>
+                        {{ form.passwordConfirmation }}
+                    </div>
+                </div>
+            </div>
+    
+            <button type="submit" class="submit-button">Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>
