@@ -82,3 +82,11 @@ input:focus {
     color: #00ff00;
     border-color: #00ff00;
 }
+
+
+.error-message {
+    color: #ff4c4c;
+    margin-top: 5px;
+    font-size: 0.9em;
+    font-family: inherit;
+}

@@ -33,7 +33,7 @@ class User(AbstractUser, PermissionsMixin):
     imagen_perfil = models.ImageField(upload_to = "profile_images", blank = True, null = True)
     direccion = models.CharField(blank = True, null = True )
     telefono = models.BigIntegerField(blank = True, null = True )
-    correo = models.CharField(default = "null@null.com")
+    correo = models.CharField(default = "")
     numVerification = models.CharField(max_length = 6, blank = True, null = True)
 
 

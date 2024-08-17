@@ -1,6 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Product{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/createUserStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" >Aceptar</button>
+    <h2>Crear un Producto</h2>
+
+    <div class="row">
+
+        <!-- fila 1 -->
+        <div class="col">
+            <div class="input-group">
+                <label for="id_nombre">Nombre del producto</label>
+                {{ form.nombre }}
+                {% if form.nombre.errors %}
+                    <div class="error-message">{{ form.nombre.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <label for="id_precio">Precio del producto</label>
+                {{form.precio}}
+                {% if form.precio.errors %}
+                    <div class="error-message">{{form.precio.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <label for="id_descripcion">Descripcion del producto</label>
+                {{form.descripcion}}
+                {% if form.descripcion.errors %}
+                    <div class="error-message">{{form.descripcion.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <label for="id_stok">Stok del producto</label>
+                {{form.stok}}
+                {% if form.stok.errors %}
+                    <div class="error-message">{{form.stok.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <label for="id_categoria">Categoria del Producto</label>
+                {{form.categoria}}
+                {% if form.categoria.errors %}
+                    <div class="error-message">{{form.categoria.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <label for="id_active">¿El producto estara activo?</label>
+                {{form.active}}
+                {% if form.active.errors %}
+                    <div class="error-message">{{form.active.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <label for="id_imagen">Imagen del producto</label>
+                {{form.imagen}}
+                {% if form.imagen.errors %}
+                    <div class="error-message">{{form.imagen.errors}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- {{form.as_p}} -->
+    <button type="submit" class="submit-button">Registrarse</button>
+
 
 </form>
+{% endblock %}
+

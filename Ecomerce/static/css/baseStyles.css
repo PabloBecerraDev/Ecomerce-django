@@ -3,7 +3,8 @@ body {
     background-color: #434141; /* Color de fondo de la página */
     color: #00ff00;     
     font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
-    color: #00ff00;             /* Texto verde como en muchas terminales antiguas */
+    color: #00ff00;   
+    padding-top: 70px;          
 }
 
 /* Opcional: Ajuste de la altura de línea y tamaño de fuente para mayor realismo */
@@ -31,7 +32,15 @@ a:hover {
     color: #ffffff;
 }
 
+textarea{
+    background-color: #434141; /* Color de fondo de la página */
+    color: #00ff00;
+}
 
+select{
+    background-color: #434141; /* Color de fondo de la página */
+    color: #00ff00;
+}
 
 
 /* Estilo general para el navbar */
@@ -43,6 +52,7 @@ a:hover {
     top: 0;                    /* Asegura que esté en la parte superior */
     left: 0;    
     padding: 10px 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

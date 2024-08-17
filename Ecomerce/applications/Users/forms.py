@@ -12,6 +12,7 @@ from django.contrib.auth import login
 class ClienteForm(forms.ModelForm):
     password = forms.CharField(widget = forms.PasswordInput, required = True)
     passwordConfirmation = forms.CharField(widget = forms.PasswordInput, required = True)
+    correo = forms.EmailField(required = True)
 
     # fields that we will use to create a user
     class Meta:
@@ -19,7 +20,7 @@ class ClienteForm(forms.ModelForm):
         fields = [
             'username',
             'nombres',
-            'apellidos',
+            'apellidos',    
             'edad',
             'direccion',
             'telefono',
@@ -37,6 +38,7 @@ class ClienteForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['direccion'].required = True
         self.fields['correo'].required = True
+        
 
 
     def save(self, commit = True):

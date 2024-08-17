@@ -4,7 +4,16 @@ from .models import *
 
 
 class ProductForm(forms.ModelForm):
-    
+    descripcion = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'placeholder': 'Ingresa una descripción detallada del producto...',
+            'rows': 5,
+            'cols': 40,
+        }),
+        max_length=1000,  
+        required=True,
+        label="Descripción del producto",
+    )
     
     class Meta:
         model = Product
