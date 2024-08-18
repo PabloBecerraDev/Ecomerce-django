@@ -36,9 +36,11 @@
         <!-- Imagen de perfil -->
          
         {% if user.is_authenticated %}
-            <div class="profile">
-                <img src="" alt="Perfil" class="profile-pic">
-            </div>
+            {% if user.imagen_perfil %}
+            <img src="{{ user.imagen_perfil.url }}" alt="Imagen de Perfil" class="profile-img" id="profile-img">
+            {% else %}
+            <img src="{% static 'images/no_image_profile/no_profile_image.webp' %}" alt="Imagen de Perfil" class="profile-img" id="profile-img">
+            {% endif %}
         {% else %} 
             <div class="profile">
                 <a class="nav-links" href="{% url 'Users_app:login' %}">Login</a>

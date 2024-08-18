@@ -35,11 +35,13 @@ a:hover {
 textarea{
     background-color: #434141; /* Color de fondo de la página */
     color: #00ff00;
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
 }
 
 select{
     background-color: #434141; /* Color de fondo de la página */
     color: #00ff00;
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
 }
 
 
@@ -47,9 +49,9 @@ select{
 .navbar {
     background-color: #1e1e1e; 
     color: #00ff00;
-    width: 97%;               
+    width: 100%;               
     position: fixed;
-    top: 0;                    /* Asegura que esté en la parte superior */
+    top: 0;                    
     left: 0;    
     padding: 10px 20px;
     margin-bottom: 20px;
@@ -120,10 +122,10 @@ select{
     text-decoration: none;
 }
 
-/* Estilo para la imagen de perfil */
 .profile .profile-pic {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     border: 2px solid #00ff00;
+    object-fit: cover;
 }
