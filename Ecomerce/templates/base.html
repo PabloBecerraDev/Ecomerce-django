@@ -37,9 +37,13 @@
          
         {% if user.is_authenticated %}
             {% if user.imagen_perfil %}
-            <img src="{{ user.imagen_perfil.url }}" alt="Imagen de Perfil" class="profile-img" id="profile-img">
+            <div class="profile">
+                <img src="{{ user.imagen_perfil.url }}" alt="Perfil" class="profile-pic">
+            </div>
             {% else %}
-            <img src="{% static 'images/no_image_profile/no_profile_image.webp' %}" alt="Imagen de Perfil" class="profile-img" id="profile-img">
+            <div class="profile">
+                <img src="{% static 'images/no_image_profile/no_profile_image.webp' %}" alt="Perfil" class="profile-pic">
+            </div>
             {% endif %}
         {% else %} 
             <div class="profile">
