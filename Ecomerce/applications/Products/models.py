@@ -1,4 +1,5 @@
 from django.db import models
+from .managers import *
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Categoria(models.Model):
 
     
     def __str__(self) -> str:
-        return str(self.id) + ' ' + self.nombre
+        return str(self.id) + ' - ' + self.nombre
 
 
 
@@ -22,11 +23,16 @@ class Product(models.Model):
     active = models.BooleanField(default = True)
     imagen = models.ImageField(upload_to = 'product_images/', blank = True, null = True)
 
+    
+    
+    # manager
+    objects = ProductManager()
+
 
 
 
     def __str__(self) -> str:
-        return str(self.id) + ' ' + self.nombre
+        return str(self.id) + ' - ' + self.nombre
 
 
 

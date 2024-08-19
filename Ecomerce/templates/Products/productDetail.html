@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Page{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/productsStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+   
+
+     <!-- Contenedor de la imagen -->
+     <div class="product-image-container">
+        <img src="{{ product.imagen.url }}" alt="{{ product.nombre }}" class="product-image">
+    </div>
+
+    <!-- Detalles del producto -->
+    <div class="product-details">
+        <h1>{{ product.nombre }}</h1>
+        <p class="label">Descripción:</p>
+        <p>{{ product.descripcion }}</p>
+        <p class="label">Precio:</p>
+        <p class="product-price">{{ product.precio }} COP</p>
+    </div>
+
+
+    
+</body>
+
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, FormView
+from django.views.generic import View
 from .models import *
 from .forms import *
 
@@ -24,3 +25,22 @@ class CreateProductView(FormView):
         form.save()
         print("producto agregado correctamnete")
         return super().form_valid(form)
+    
+
+
+def productDetailView(request, id):
+    print(id)
+    # get the product by the id from the url
+    product = Product.objects.getProductById(id)
+
+    print(product)
+    #this is the context 
+    context={
+        'product':product,
+    }
+
+    return render(
+        request,
+        "Products/productDetail.html",
+        context
+    )

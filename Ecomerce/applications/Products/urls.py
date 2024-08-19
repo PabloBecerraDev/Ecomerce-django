@@ -8,4 +8,6 @@ app_name = "Products_app"
 urlpatterns = [
     path('CreateCategoria', CreateCategoriaView.as_view(), name = 'CreateCategoriaView'),
     path('CreateProduct', CreateProductView.as_view(), name = 'CreateProductView'),
+    path('ProductDetail/<int:id>', productDetailView, name = 'ProductDetailView'),
+    
 ]

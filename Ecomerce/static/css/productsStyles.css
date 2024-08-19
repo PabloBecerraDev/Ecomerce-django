@@ -1,0 +1,64 @@
+.product-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.product-image-container {
+    margin-left: 20px;
+    flex-basis: 40%; /* Ajusta el espacio que ocupa la imagen */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.product-image {
+    width: 60%;  /*es este para la imagen*/
+    height: auto;
+    max-height: 600px; /* Ajusta la altura máxima de la imagen */
+    object-fit: cover;
+    border: 3px solid #00ff00; /* Borde de la imagen */
+    border-radius: 10px;
+}
+
+
+.product-detail-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    color: #00ff00;  /* Mantener la estética terminal */
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+}
+
+
+.product-details {
+    color: #00ff00;
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    max-width: 60%;
+}
+
+.product-details h1 {
+    flex-basis: 60%; 
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.product-details p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.product-details .label {
+    font-weight: bold;
+    color: #00ff00;
+    margin-bottom: 5px;
+}
+
