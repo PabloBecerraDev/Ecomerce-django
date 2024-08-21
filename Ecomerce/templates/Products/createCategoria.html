@@ -1,7 +1,34 @@
-<h1>Crear una categoria</h1>
+{% extends 'base.html' %}
+
+{% block title %}index Page{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/createUserStyles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-form">
+
+    <form method="post">{% csrf_token %}
+        <h2>Crear una categoria</h2>
+
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                    <label for="id_nombre">Nombre de etiqueta:</label>
+                    {{ form.nombre }}
+                    {% if form.nombre.errors %}
+                        <div class="error-message">{{ form.nombre.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+{% endblock %}
 
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>

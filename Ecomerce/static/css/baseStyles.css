@@ -4,7 +4,7 @@ body {
     color: #00ff00;     
     font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
     color: #00ff00;   
-    padding-top: 70px;          
+    padding-top: 100px;          
 }
 
 /* Opcional: Ajuste de la altura de línea y tamaño de fuente para mayor realismo */
@@ -49,10 +49,11 @@ select{
 .navbar {
     background-color: #1e1e1e; 
     color: #00ff00;
-    width: 98%;               
+    width: 100%;   /* Asegura que el navbar ocupe todo el ancho */
     position: fixed;
-    top: 0;                    
-    left: 0;    
+    top: 0;
+    left: 0;
+    right: 0;  /* Asegura que el navbar llegue al borde derecho */
     padding: 10px 20px;
     margin-bottom: 20px;
     display: flex;
@@ -108,15 +109,14 @@ select{
 /* Estilo para los enlaces del navbar */
 .nav-links {
     display: flex;
-    text-decoration: none;
     align-items: center;
-    gap: 20px;
+    gap: 5px; /* Aumenta el espacio entre los enlaces */
 }
 
 .nav-links a {
     color: #00ff00;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 28px;
 }
 
 .nav-links a:hover {
@@ -127,9 +127,11 @@ select{
 .profile {
     width: 40px; /* Ajusta el tamaño según tus necesidades */
     height: 40px; /* Ajusta el tamaño según tus necesidades */
+    margin-right: 32px;
 }
 
 .profile .profile-pic {
+    
     width: 100%; /* Asegúrate de que la imagen llene el contenedor */
     height: 100%; /* Asegúrate de que la imagen llene el contenedor */
     border-radius: 50%;

@@ -1,4 +1,63 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}Confirmation account Page{% endblock %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/createUserStyles.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container-form">
+
+        
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <button type="submit" name="btnUsername" class="submit-button">Enviar correo</button>
+
+        {{ form.code.label_tag }}
+        {{ form.code }}
+        <button type="submit" name="btnVerificar" class="submit-button">Activar cuenta</button>
+
+        <h3>¿No te llegó el código?</h3>
+        <button type="submit" name="btnReenviar" class="submit-button">Enviar código nuevamente</button>
+    </form>
+</div>
+
+    <!-- <h1>Activar cuenta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <button type="submit" name="btnUsername">Enviar correo</button>
+
+        {{ form.code.label_tag }}
+        {{ form.code }}
+        <button type="submit" name="btnVerificar">Activar cuenta</button>
+
+        <h3>¿No te llegó el código?</h3>
+        <button type="submit" name="btnReenviar">Enviar código nuevamente</button>
+    </form> -->
+
+</body>
+{% endblock %}
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,4 +90,4 @@
     </form>
 
 </body>
-</html>
+</html> -->

@@ -9,23 +9,57 @@
 
 {% block content %}
 <body>
+
+
+
+    <div class="parent">
+        <div class="div1">
+            <div class="product-image-container">
+                <img src="{{ product.imagen.url }}" alt="{{ product.nombre }}" class="product-image">
+            </div>
+        </div>
+
+
+        <div class="div2">
+            <div class="product-details">
+                <h1>{{ product.nombre }}</h1>
+                <p class="label">Descripción:</p>
+                <p>{{ product.descripcion }}</p>
+                <p class="label">Precio:</p>
+                <p class="product-price">{{ product.precio }} COP</p>
+                <br>
+
+
+
+                <p class="label">Catidad:</p>
+                <div class="stock-container">
+                    <button type="button" class="stock-button" id="decrease">-</button>
+                    <span id="current-stock">{{ product.stok }}</span>
+                    <button type="button" class="stock-button" id="increase">+</button>
+                </div>  
+                <br>
+
+                <button type="submit" class="submit-button">Agregar al carrito.</button>
+
+            </div>        
+        </div>
+    </div>
    
 
-     <!-- Contenedor de la imagen -->
-     <div class="product-image-container">
+    <!-- <div class="product-image-container">
         <img src="{{ product.imagen.url }}" alt="{{ product.nombre }}" class="product-image">
     </div>
 
-    <!-- Detalles del producto -->
     <div class="product-details">
         <h1>{{ product.nombre }}</h1>
         <p class="label">Descripción:</p>
         <p>{{ product.descripcion }}</p>
         <p class="label">Precio:</p>
         <p class="product-price">{{ product.precio }} COP</p>
-    </div>
+    </div> -->
 
 
+    <script src="{% static 'js/stok.js' %}"></script>
     
 </body>
 
