@@ -3,4 +3,46 @@
 {% block title %}index Page{% endblock %}
 
 {% block content %}
+
+
+<div class="product-grid-custom">
+    {% for product in products %}
+        <div class="product-card-custom">
+            <div class="product-image-container-custom">
+                <img src="{{ product.imagen.url }}" alt="{{ product.nombre }}" class="product-image-custom">
+            </div>
+            <div class="product-details-custom">
+                <h3 class="product-name-custom">{{ product.nombre }}</h3>
+                <p class="product-price-custom">${{ product.precio }}</p>
+                <a href="{% url 'Products_app:ProductDetailView' product.id %}" class="buy-button-custom">Comprar</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+<!-- menu para las paginas -->
+
+<div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+            <a href="?page=1">&laquo; primero</a>
+            <a href="?page={{ products.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ products.number }} de {{ products.paginator.num_pages }}.
+        </span>
+
+        {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}">siguiente</a>
+            <a href="?page={{ products.paginator.num_pages }}">último &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}

@@ -32,11 +32,14 @@
 
 
                 <p class="label">Catidad:</p>
+                <input type="hidden" id="max-stock" value="{{ product.stok }}">
+
                 <div class="stock-container">
                     <button type="button" class="stock-button" id="decrease">-</button>
-                    <span id="current-stock">{{ product.stok }}</span>
+                    <span id="current-stock">1</span> <!-- Comienza en 1 -->
                     <button type="button" class="stock-button" id="increase">+</button>
-                </div>  
+                </div>
+  
                 <br>
 
                 <button type="submit" class="submit-button">Agregar al carrito.</button>

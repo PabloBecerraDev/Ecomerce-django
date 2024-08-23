@@ -22,7 +22,9 @@ class Product(models.Model):
     categoria = models.ManyToManyField(Categoria)
     active = models.BooleanField(default = True)
     imagen = models.ImageField(upload_to = 'product_images/', blank = True, null = True)
-
+    
+    created_at = models.DateTimeField(auto_now_add=True, null = True, blank = True)
+    updated_at = models.DateTimeField(auto_now=True, null = True, blank = True)
     
     
     # manager

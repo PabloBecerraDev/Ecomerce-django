@@ -6,6 +6,9 @@ app_name = "Home_app"
 
 
 urlpatterns = [
-   path('', IndexTemplateView.as_view(), name = 'index_view')
+   # path('', IndexTemplateView.as_view(), name = 'index_view')
+   path('', indexProductsView, name = 'index_view')
+   
+
 ]
 

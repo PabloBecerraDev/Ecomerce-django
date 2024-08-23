@@ -44,3 +44,18 @@ def productDetailView(request, id):
         "Products/productDetail.html",
         context
     )
+
+
+def indexProductsView(request):
+    products = Product.objects.getProducts()
+    print(products)
+    context = {
+        'products':products
+    }
+
+    return render(
+        request,
+        "Home/index.html",
+        context
+    )
+    

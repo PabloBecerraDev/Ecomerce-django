@@ -1,15 +1,13 @@
-// alert("holaaaaa.")
-
 document.addEventListener("DOMContentLoaded", function () {
-    const maxStock = ( product.stok );
-    let currentStock = maxStock;
+    const maxStock = parseInt(document.getElementById("max-stock").value, 10); // Límite máximo desde el campo oculto
+    let currentStock = 1; // Comienza en 1
 
     const decreaseButton = document.getElementById("decrease");
     const increaseButton = document.getElementById("increase");
     const stockDisplay = document.getElementById("current-stock");
 
     decreaseButton.addEventListener("click", function () {
-        if (currentStock > 0) {
+        if (currentStock > 1) { // No bajar de 1
             currentStock--;
             stockDisplay.textContent = currentStock;
             updateButtons();
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateButtons() {
-        decreaseButton.disabled = currentStock <= 0;
+        decreaseButton.disabled = currentStock <= 1; // Deshabilitar si es 1
         increaseButton.disabled = currentStock >= maxStock;
     }
 
