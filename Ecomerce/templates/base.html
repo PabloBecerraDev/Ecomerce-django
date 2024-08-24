@@ -7,9 +7,11 @@
     <title>{% block title %}Mi Proyecto Terminal{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/baseStyles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- this is for extra css files  -->
     {% block extra_css %}
+    
     
     {% endblock %}
 </head>
@@ -38,9 +40,15 @@
         {% if user.is_authenticated %}
             {% if user.imagen_perfil %}
             <div class="profile">
+                <div class="cart-container">
+                    <img src="{% static 'icons/cart.svg' %}" alt="Carrito de Compras" class="cart-icon">
+                </div>
                 <img src="{{ user.imagen_perfil.url }}" alt="Perfil" class="profile-pic">
             </div>
             {% else %}
+            <div class="profile">
+                <img src="{% static 'icons/cart.svg' %}" alt="Carrito de Compras" >
+            </div>
             <div class="profile">
                 <img src="{% static 'images/no_image_profile/no_profile_image.webp' %}" alt="Perfil" class="profile-pic">
             </div>

@@ -12,6 +12,7 @@ from django.contrib.auth import login
 class ClienteForm(forms.ModelForm):
     password = forms.CharField(widget = forms.PasswordInput, required = True)
     passwordConfirmation = forms.CharField(widget = forms.PasswordInput, required = True)
+    barrio = forms.CharField(required = True)
     correo = forms.EmailField(required = True)
 
     # fields that we will use to create a user
@@ -24,7 +25,8 @@ class ClienteForm(forms.ModelForm):
             'edad',
             'direccion',
             'telefono',
-            'correo'
+            'correo',
+            'ciudad'
         ]
 
 
@@ -50,6 +52,16 @@ class ClienteForm(forms.ModelForm):
         if commit:
             user.numVerification = codeGenerator()
             user.save()
+
+            direccion = Direccion(
+                direccion=self.cleaned_data['direccion'],
+                barrio=self.cleaned_data['barrio'],
+                ciudad=self.cleaned_data['ciudad'],
+                user=user  # Asocia correctamente la `Direccion` con el `User`
+            )
+
+            direccion.save()
+
             
         return user
 

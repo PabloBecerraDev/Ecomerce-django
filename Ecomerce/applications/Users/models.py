@@ -31,6 +31,7 @@ class User(AbstractUser, PermissionsMixin):
     apellidos = models.CharField(max_length = 60)
     edad = models.IntegerField(blank = True, null = True )
     imagen_perfil = models.ImageField(upload_to = "profile_images", blank = True, null = True)
+    ciudad = models.CharField(choices = CIUDAD_CHOISES, null = True, blank = True)
     direccion = models.CharField(blank = True, null = True )
     telefono = models.BigIntegerField(blank = True, null = True )
     correo = models.CharField(default = "")
@@ -39,7 +40,7 @@ class User(AbstractUser, PermissionsMixin):
 
 
     is_active = models.BooleanField(default = False)
-    
+     
 
 
 
@@ -49,6 +50,9 @@ class User(AbstractUser, PermissionsMixin):
 
     # this is the manager for the users 
     objects = UserManager()
+
+    def getId(self):
+        return self.id
 
 
 

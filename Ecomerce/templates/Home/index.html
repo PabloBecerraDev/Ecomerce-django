@@ -14,7 +14,7 @@
             <div class="product-details-custom">
                 <h3 class="product-name-custom">{{ product.nombre }}</h3>
                 <p class="product-price-custom">${{ product.precio }}</p>
-                <a href="{% url 'Products_app:ProductDetailView' product.id %}" class="buy-button-custom">Comprar</a>
+                <a href="{% url 'Products_app:ProductDetailView' product.id %}" class="buy-button-custom" style="text-decoration: none;">Comprar</a>
             </div>
         </div>
     {% endfor %}

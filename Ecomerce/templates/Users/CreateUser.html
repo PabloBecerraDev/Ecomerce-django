@@ -148,10 +148,10 @@
             <div class="row">
                 <div class="col">
                     <div class="input-group">
-                        <label for="id_direccion">Dirección</label>
-                        {{ form.direccion }}
-                        {% if form.direccion.errors %}
-                            <div class="error-message">{{ form.direccion.errors }}</div>
+                        <label for="id_correo">Correo</label>
+                        {{ form.correo }}
+                        {% if form.correo.errors %}
+                            <div class="error-message">{{ form.correo.errors }}</div>
                         {% endif %}
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                 </div>
             </div>
     
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col">
                     <div class="input-group">
                         <label for="id_correo">Correo</label>
@@ -176,7 +176,7 @@
                         {% endif %}
                     </div>
                 </div>
-            </div>
+            </div> -->
     
             <div class="row">
                 <div class="col">
@@ -194,6 +194,43 @@
                         {{ form.passwordConfirmation }}
                         {% if form.passwordConfirmation.errors %}
                             <div class="error-message">{{ form.passwordConfirmation.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <h2>Direccion del Cliente</h2>
+
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_direccion">Direccion</label>
+                        {{ form.direccion }}
+                        {% if form.direccion.errors %}
+                            <div class="error-message">{{ form.direccion.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_barrio">Barrio</label>
+                        {{ form.barrio }}
+                        {% if form.barrio.errors %}
+                            <div class="error-message">{{ form.barrio.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <label for="id_ciudad">Ciudad</label>
+                        {{ form.ciudad }}
+                        {% if form.ciudad.errors %}
+                            <div class="error-message">{{ form.ciudad.errors }}</div>
                         {% endif %}
                     </div>
                 </div>

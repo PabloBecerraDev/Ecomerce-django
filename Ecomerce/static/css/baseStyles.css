@@ -140,6 +140,12 @@ select{
     display: block;
 }
 
+.profile-container {
+    display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
+    align-items: center; /* Alinea verticalmente el carrito y la imagen de perfil */
+    gap: 10px; /* Espacio entre el carrito y la imagen de perfil */
+}
+
 
 
 /* Estilo para la tarjeta del producto */
@@ -221,3 +227,6 @@ select{
     width: 100%; /* Se ajusta al tamaño de la columna */
     max-width: 300px; /* Evita que las tarjetas se expandan demasiado */
 }
+
+
+
