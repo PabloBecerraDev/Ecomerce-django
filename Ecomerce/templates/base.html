@@ -47,7 +47,10 @@
             </div>
             {% else %}
             <div class="profile">
-                <img src="{% static 'icons/cart.svg' %}" alt="Carrito de Compras" >
+                <!-- <img src="{% static 'icons/cart.svg' %}" alt="Carrito de Compras" > -->
+                <a href="{% url 'carrito_app:Carrito_view' %}">
+                    <img src="{% static 'icons/cart.svg' %}" alt="Carrito de Compras" >
+                </a>
             </div>
             <div class="profile">
                 <img src="{% static 'images/no_image_profile/no_profile_image.webp' %}" alt="Perfil" class="profile-pic">

@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'applications.Home',
     'applications.Products',
     'applications.Services',
-    'applications.Users'
+    'applications.Users',
+    'applications.carrito'
 ]
 
 MIDDLEWARE = [
